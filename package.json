@@ -1,0 +1,27 @@
+{
+  "name": "javascript-data-structure-kata",
+  "version": "1.0.0",
+  "description": "This is a javascript 🟨 project kata 🥋 to understand, learn and improve the data structures 🛢️",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest -c jest.config.js --coverage"
+  },
+  "keywords": [
+    "Javascript",
+    "data",
+    "structures",
+    "kata"
+  ],
+  "author": "Pedro Capriles <caprilespe@outlook.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@babel/register": "^7.22.5",
+    "jest": "^29.6.2",
+    "pre-commit": "^1.2.2"
+  },
+  "pre-commit": [
+    "test"
+  ]
+}

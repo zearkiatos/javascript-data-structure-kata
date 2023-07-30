@@ -20,4 +20,34 @@ describe("Unit test suite for a custom array", () => {
     expect(array.get(0)).toBe(item);
     expect(data).toEqual(dataExpected)
   });
+
+  test("Should delete the last item into the custom array", () => {
+    const array = new MyArray();
+    const item = "Pedro";
+    const dataExpected = 'Ana'
+    array.push("Pedro");
+    array.push("Maria");
+    array.push("Ana");
+
+    const data = array.pop()
+
+    expect(array.get(0)).toBe(item);
+    expect(Object.values(array)).toHaveLength(2);
+    expect(data).toEqual(dataExpected)
+  });
+
+  test("Should delete an specific element into the custom array", () => {
+    const array = new MyArray();
+    const item = "Pedro";
+    const dataExpected = "Maria";
+    array.push("Pedro");
+    array.push("Maria");
+    array.push("Ana");
+
+    const data = array.delete(1);
+
+    expect(array.get(0)).toBe(item);
+    expect(Object.values(array)).toHaveLength(2);
+    expect(data).toEqual(dataExpected)
+  });
 });

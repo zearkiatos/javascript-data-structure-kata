@@ -50,4 +50,34 @@ describe("Unit test suite for a custom array", () => {
     expect(Object.values(array)).toHaveLength(2);
     expect(data).toEqual(dataExpected)
   });
+
+  test("Should add at the begin of the array", () => {
+    const array = new MyArray();
+    const item = "Carlos";
+    const dataExpected = 4;
+    array.push("Pedro");
+    array.push("Maria");
+    array.push("Ana");
+
+    const data = array.unshift('Carlos');
+
+    expect(array.get(0)).toBe(item);
+    expect(Object.values(array.data)).toHaveLength(4);
+    expect(data).toEqual(dataExpected)
+  });
+
+  test("Should return the length when unshift does not receive a data", () => {
+    const array = new MyArray();
+    const item = "Pedro";
+    const dataExpected = 3;
+    array.push("Pedro");
+    array.push("Maria");
+    array.push("Ana");
+
+    const data = array.unshift();
+
+    expect(array.get(0)).toBe(item);
+    expect(Object.values(array.data)).toHaveLength(3);
+    expect(data).toEqual(dataExpected)
+  });
 });

@@ -36,6 +36,19 @@ class MyArray {
     delete this.data[this.length - 1];
     this.length--;
   }
+
+  unshift(item) {
+    if (!item) return this.length;
+    const newArray = {};
+    for (let i = 1; i < this.length + 1; i++) {
+      newArray[i] = this.data[i - 1];
+    }
+    newArray[0] = item;
+    this.data = newArray;
+    this.length++;
+
+    return this.length;
+  }
 }
 
 export default MyArray;

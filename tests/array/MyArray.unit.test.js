@@ -12,28 +12,28 @@ describe("Unit test suite for a custom array", () => {
     const array = new MyArray();
     const item = "Pedro";
     const dataExpected = {
-        0: item
-    }
+      0: item,
+    };
 
     const data = array.push("Pedro");
 
     expect(array.get(0)).toBe(item);
-    expect(data).toEqual(dataExpected)
+    expect(data).toEqual(dataExpected);
   });
 
   test("Should delete the last item into the custom array", () => {
     const array = new MyArray();
     const item = "Pedro";
-    const dataExpected = 'Ana'
+    const dataExpected = "Ana";
     array.push("Pedro");
     array.push("Maria");
     array.push("Ana");
 
-    const data = array.pop()
+    const data = array.pop();
 
     expect(array.get(0)).toBe(item);
     expect(Object.values(array)).toHaveLength(2);
-    expect(data).toEqual(dataExpected)
+    expect(data).toEqual(dataExpected);
   });
 
   test("Should delete an specific element into the custom array", () => {
@@ -48,7 +48,7 @@ describe("Unit test suite for a custom array", () => {
 
     expect(array.get(0)).toBe(item);
     expect(Object.values(array)).toHaveLength(2);
-    expect(data).toEqual(dataExpected)
+    expect(data).toEqual(dataExpected);
   });
 
   test("Should add at the begin of the array", () => {
@@ -59,11 +59,11 @@ describe("Unit test suite for a custom array", () => {
     array.push("Maria");
     array.push("Ana");
 
-    const data = array.unshift('Carlos');
+    const data = array.unshift("Carlos");
 
     expect(array.get(0)).toBe(item);
     expect(Object.values(array.data)).toHaveLength(4);
-    expect(data).toEqual(dataExpected)
+    expect(data).toEqual(dataExpected);
   });
 
   test("Should return the length when unshift does not receive a data", () => {
@@ -78,6 +78,30 @@ describe("Unit test suite for a custom array", () => {
 
     expect(array.get(0)).toBe(item);
     expect(Object.values(array.data)).toHaveLength(3);
-    expect(data).toEqual(dataExpected)
+    expect(data).toEqual(dataExpected);
+  });
+
+  test("Should delete the first element in the array ", () => {
+    const array = new MyArray();
+    const item = "Maria";
+    const dataExpected = "Pedro";
+    array.push("Pedro");
+    array.push("Maria");
+    array.push("Ana");
+
+    const data = array.shift();
+
+    expect(array.get(0)).toBe(item);
+    expect(Object.values(array.data)).toHaveLength(2);
+    expect(data).toEqual(dataExpected);
+  });
+
+  test("Should return undefined when delete the last element of a shift in a empty array ", () => {
+    const array = new MyArray();
+
+    const data = array.shift();
+
+    expect(Object.values(array.data)).toHaveLength(0);
+    expect(data).toBeUndefined();
   });
 });

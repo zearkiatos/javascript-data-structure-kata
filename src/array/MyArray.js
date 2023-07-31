@@ -49,6 +49,13 @@ class MyArray {
 
     return this.length;
   }
+
+  shift() {
+    const lastElement = this.data[0];
+    this.shiftIndex(0);
+
+    return lastElement;
+  }
 }
 
 export default MyArray;

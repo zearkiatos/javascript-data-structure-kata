@@ -12,7 +12,7 @@ describe('Unit test suite, for array', () => {
 
         array.push('Ana')
 
-        expect(typeof 'object').toBeTruthy();
+        expect(typeof array === 'object').toBeTruthy();
         expect(array).toHaveLength(4);
         expect(array[3]).toBe('Ana');
     });

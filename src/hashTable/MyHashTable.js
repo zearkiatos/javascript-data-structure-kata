@@ -22,6 +22,17 @@ class MyHashTable {
 
     return this.data;
   }
+
+  get(key) {
+    const address = this.hashMethod(key);
+    const currentBucket = this.data[address];
+
+    if (currentBucket) {
+      for (let item of currentBucket) {
+        if (item[0] === key) return item[1];
+      }
+    }
+  }
 }
 
 export default MyHashTable;

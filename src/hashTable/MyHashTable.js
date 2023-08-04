@@ -49,14 +49,10 @@ class MyHashTable {
   }
 
   getAllKeys() {
-    const keys = [];
-    for (let bucket of this.data) {
-      if (bucket) {
-        for (let item of bucket) {
-          keys.push(item[0]);
-        }
-      }
-    }
+    const keys = this.data
+      .filter((item) => item)
+      .flat(1)
+      .map((bucket) => bucket[0]);
 
     return keys;
   }

@@ -76,8 +76,6 @@ describe("Unit test suite of the HashTable", () => {
     myHashTable.set("Cat", 2010)
     const data = myHashTable.getAllKeys();
 
-    console.log(data);
-
     expect(typeof myHashTable.data === "object").toBeTruthy();
     expect(data).toHaveLength(4);
     expect(data).toEqual(expect.arrayContaining(dataExpected));

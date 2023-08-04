@@ -65,4 +65,21 @@ describe("Unit test suite of the HashTable", () => {
     expect(typeof myHashTable.data === "object").toBeTruthy();
     expect(data).toBeUndefined();
   });
+
+  test("Should return an array with all keys", () => {
+    const myHashTable = new MyHashTable(50);
+    const dataExpected = ["Diego", "Mariana", "Miranda", "Cat"];
+
+    myHashTable.set("Diego", 1990);
+    myHashTable.set("Mariana", 1998)
+    myHashTable.set("Miranda", 2000)
+    myHashTable.set("Cat", 2010)
+    const data = myHashTable.getAllKeys();
+
+    console.log(data);
+
+    expect(typeof myHashTable.data === "object").toBeTruthy();
+    expect(data).toHaveLength(4);
+    expect(data).toEqual(expect.arrayContaining(dataExpected));
+  });
 });

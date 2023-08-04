@@ -35,8 +35,8 @@ class MyHashTable {
   }
 
   delete(key) {
-    const address = this.hashMethod(key)
-    const currentBucket = this.data[address]
+    const address = this.hashMethod(key);
+    const currentBucket = this.data[address];
     if (currentBucket) {
       for (let i = 0; i < currentBucket.length; i++) {
         if (currentBucket[i][0] === key) {
@@ -46,6 +46,19 @@ class MyHashTable {
       }
     }
     return undefined;
+  }
+
+  getAllKeys() {
+    const keys = [];
+    for (let bucket of this.data) {
+      if (bucket) {
+        for (let item of bucket) {
+          keys.push(item[0]);
+        }
+      }
+    }
+
+    return keys;
   }
 }
 

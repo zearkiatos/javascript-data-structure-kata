@@ -37,6 +37,31 @@ class SinglyLinkedList {
     return this;
   }
 
+  remove(index) {
+    let counter = 0;
+    let newList = null;
+    let current = this.head;
+    while(counter <= this.length) {
+      if (counter !== index) {
+        if (counter === 0) {
+          newList = new SinglyLinkedList(this.head.value)
+        }
+        else if (current?.next) {
+          newList.append(current?.next.value)
+        }
+        if (current?.next)
+          current = current.next;
+      }
+      counter++;
+    }
+
+    this.head = newList.head;
+    this.tail = newList.tail;
+    this.length = newList.length;
+
+    return this;
+  }
+
   getIndex(index) {
     let counter = 0;
     let currentNode = this.head;

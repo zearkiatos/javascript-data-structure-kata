@@ -105,4 +105,34 @@ describe("Unit test suite for Singly linked list", () => {
     expect(singlyLinkedList.tail).toEqual(expectedTail);
     expect(singlyLinkedList.length).toBe(6);
   });
+
+  test("Should remove the last element if the index is grant to equal to the size of the singly linked", () => {
+    const expectedHead = new Node(1);
+    const expectedTail = new Node(3);
+    expectedHead.next = new Node(3);
+    const singlyLinkedList = new SinglyLinkedList(1);
+    singlyLinkedList.append(2);
+    singlyLinkedList.append(3);
+
+    singlyLinkedList.remove(10);
+
+    expect(singlyLinkedList.head).toEqual(expectedHead);
+    expect(singlyLinkedList.tail).toEqual(expectedTail);
+    expect(singlyLinkedList.length).toBe(2);
+  });
+
+  test("Should remove an element with an index gave", () => {
+    const expectedHead = new Node(1);
+    const expectedTail = new Node(3);
+    expectedHead.next = new Node(3);
+    const singlyLinkedList = new SinglyLinkedList(1);
+    singlyLinkedList.append(2);
+    singlyLinkedList.append(3);
+
+    singlyLinkedList.remove(1);
+
+    expect(singlyLinkedList.head).toEqual(expectedHead);
+    expect(singlyLinkedList.tail).toEqual(expectedTail);
+    expect(singlyLinkedList.length).toBe(2);
+  });
 });

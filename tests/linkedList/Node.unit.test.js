@@ -1,5 +1,5 @@
 import Node from "../../src/linkedList/Node";
-describe("Unit test suite for Singly linked list", () => {
+describe("Unit test suite Node for Singly linked list", () => {
   test("Should create a node instance", () => {
     const expectedData = {
       value: 20,

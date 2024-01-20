@@ -57,7 +57,6 @@ describe("Unit test suite of tree", () => {
     expectedRoot.left.right = new Node(nodesValues[4]);
     expectedRoot.right.left = new Node(nodesValues[5]);
     expectedRoot.right.right = new Node(nodesValues[6]);
-
     const tree = new BinarySearchTree();
 
     tree.insert(nodesValues[0]);
@@ -71,5 +70,65 @@ describe("Unit test suite of tree", () => {
     expect(tree.root).toEqual(expectedRoot);
     expect(tree.root.right).toEqual(expectedRoot.right);
     expect(tree.root.left).toEqual(expectedRoot.left);
+  });
+
+  test('Should search and get the node where is a specific value', () => {
+    const valueForSearch = 20;
+    const nodesValues = [10, 4, 20, 2, 8 , 17, 170];
+    const expectedNode = new Node(20);
+    expectedNode.left = new Node(17);
+    expectedNode.right = new Node(170);
+    const tree = new BinarySearchTree();
+    tree.insert(nodesValues[0]);
+    tree.insert(nodesValues[1]);
+    tree.insert(nodesValues[2]);
+    tree.insert(nodesValues[3]);
+    tree.insert(nodesValues[4]);
+    tree.insert(nodesValues[5]);
+    tree.insert(nodesValues[6]);
+
+    const foundNode = tree.search(valueForSearch);
+
+    expect(foundNode).toEqual(expectedNode);
+  });
+
+  test('Should found element on the left of the tree', () => {
+    const valueForSearch = 4;
+    const nodesValues = [10, 4, 20, 2, 8 , 17, 170];
+    const expectedNode = new Node(4);
+    expectedNode.left = new Node(2);
+    expectedNode.right = new Node(8);
+    const tree = new BinarySearchTree();
+    tree.insert(nodesValues[0]);
+    tree.insert(nodesValues[1]);
+    tree.insert(nodesValues[2]);
+    tree.insert(nodesValues[3]);
+    tree.insert(nodesValues[4]);
+    tree.insert(nodesValues[5]);
+    tree.insert(nodesValues[6]);
+
+    const foundNode = tree.search(valueForSearch);
+
+    expect(foundNode).toEqual(expectedNode);
+  });
+
+  test('Should return null if it does not exist', () => {
+    const valueForSearch = 21;
+    const nodesValues = [10, 4, 20, 2, 8 , 17, 170];
+    const expectedNode = new Node(20);
+    expectedNode.left = new Node(17);
+    expectedNode.right = new Node(170);
+    const tree = new BinarySearchTree();
+    tree.insert(nodesValues[0]);
+    tree.insert(nodesValues[1]);
+    tree.insert(nodesValues[2]);
+    tree.insert(nodesValues[3]);
+    tree.insert(nodesValues[4]);
+    tree.insert(nodesValues[5]);
+    tree.insert(nodesValues[6]);
+
+    const foundNode = tree.search(valueForSearch);
+
+    expect(foundNode).toBeNull();
   });
 });
